@@ -1,3 +1,5 @@
+import {Link, withRouter} from 'react-router-dom'
+
 import {AiFillHome, AiFillFire} from 'react-icons/ai'
 import {RiGamepadFill, RiPlayListAddFill} from 'react-icons/ri'
 import ToggleTheme from '../../context/ToggleTheme'
@@ -21,19 +23,35 @@ const SideNav = () => (
           <UlContaner>
             <ListItem toggle={isDarkTheme}>
               <AiFillHome />
-              <ItemPara>Home</ItemPara>
+              <ItemPara>
+                <Link to="/" style={{textDecoration: 'none'}}>
+                  Home
+                </Link>
+              </ItemPara>
             </ListItem>
             <ListItem toggle={isDarkTheme}>
               <AiFillFire />
-              <ItemPara>Trending</ItemPara>
+              <ItemPara>
+                <Link to="/trending" style={{textDecoration: 'none'}}>
+                  Trending
+                </Link>
+              </ItemPara>
             </ListItem>
             <ListItem toggle={isDarkTheme}>
               <RiGamepadFill />
-              <ItemPara>Gaming</ItemPara>
+              <ItemPara>
+                <Link to="/gaming" style={{textDecoration: 'none'}}>
+                  Gaming
+                </Link>
+              </ItemPara>
             </ListItem>
             <ListItem toggle={isDarkTheme}>
               <RiPlayListAddFill />
-              <ItemPara>Saved videos</ItemPara>
+              <ItemPara>
+                <Link to="/saved-videos" style={{textDecoration: 'none'}}>
+                  Saved videos
+                </Link>
+              </ItemPara>
             </ListItem>
           </UlContaner>
           <FooterContainer>
@@ -68,4 +86,4 @@ const SideNav = () => (
   </ToggleTheme.Consumer>
 )
 
-export default SideNav
+export default withRouter(SideNav)

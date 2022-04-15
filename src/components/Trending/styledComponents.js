@@ -99,3 +99,24 @@ export const RetryBtn = styled.button`
   border-radius: 8px;
   border: none;
 `
+export const HeaderContainer = styled.div`
+  background-color: ${props => (props.toggle ? '#212121' : ' #ebebeb')};
+  display: flex;
+  align-items: center;
+  padding: 40px;
+`
+
+export const IconContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => (props.toggle ? '#424242' : ' #ebebeb')};
+  border-radius: 80px;
+  padding: 40px;
+`
+
+export const Heading = styled.h1`
+  color: ${props => (props.toggle ? '#ffffff' : '#000000')};
+  margin-left: 10px;
+`

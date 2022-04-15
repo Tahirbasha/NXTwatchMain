@@ -13,16 +13,6 @@ export const HomeVideoContainer = styled.div`
   flex-direction: column;
 `
 
-export const BannerContainer = styled.div`
-  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
-  background-size: cover;
-  display: ${props => (props.CancelBanner ? 'flex' : 'none')};
-  justify-content: space-between;
-  padding: 20px;
-  height: 40vh;
-  width: 80vw;
-`
-
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,10 +27,10 @@ export const GetBtn = styled.button`
 export const LogoImg = styled.img.attrs(props => ({
   src: props.src,
 }))`
-  height: ${props => (props.maiHuNotFound ? '480px' : '40px')};
+  height: 400px;
   align-self: flex-start;
 `
-
+//  ${props => (props.maiHuNotFound ? '480px' : '40px')};
 export const AdvertLine = styled.p`
   font-size: 28px;
   width: 75%;
@@ -84,7 +74,7 @@ export const EachVideoContainer = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   overflow: auto;
-  height: 650px;
+  height: 780px;
 `
 export const OopsContainer = styled.div`
   text-align: center;
@@ -98,4 +88,75 @@ export const RetryBtn = styled.button`
   outline: none;
   border-radius: 8px;
   border: none;
+`
+export const HeaderContainer = styled.div`
+  background-color: ${props => (props.toggle ? '#212121' : '##cccccc')};
+  display: flex;
+  align-items: center;
+  padding: 40px;
+`
+
+export const IconContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => (props.toggle ? '#424242' : '#94a3b8')};
+  border-radius: 80px;
+  padding: 40px;
+`
+
+export const Heading = styled.h1`
+  color: ${props => (props.toggle ? '#ffffff' : '#000000')};
+  margin-left: 10px;
+`
+
+export const VideoContainer = styled.div`
+  width: 30%;
+  padding-top: 20px;
+  margin-left: 20px;
+`
+
+export const ChannelTitle = styled.div`
+  display: flex;
+`
+
+export const Name = styled.p`
+  color: ${props => (props.toggle ? '#d7dfe9' : '#212121')};
+  font-size: 25px;
+  font-weight: 500;
+  font-family: Roboto;
+`
+
+export const Title = styled.h1`
+  color: ${props => (props.toggle ? '#d7dfe9' : '#212121')};
+  font-size: 22px;
+  font-weight: 500;
+  font-family: Roboto;
+`
+
+export const TheoryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 12px;
+`
+
+export const ViewsCount = styled.p`
+  color: ${props => (props.toggle ? '#d7dfe9' : '#212121')};
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Roboto;
+`
+
+export const PublishTime = styled.p`
+  color: ${props => (props.toggle ? '#d7dfe9' : '#212121')};
+  font-size: 10px;
+  font-weight: 500;
+  font-family: Roboto;
+  margin-left: 12px;
+`
+export const ViewTime = styled.div`
+  display: flex;
+  align-items: center;
 `

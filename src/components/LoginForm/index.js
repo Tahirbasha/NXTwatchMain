@@ -1,4 +1,6 @@
 import {Component} from 'react'
+import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
 import ToggleTheme from '../../context/ToggleTheme'
 import {
   MainformContainer,
@@ -29,7 +31,9 @@ class LoginForm extends Component {
     const response = await fetch('https://apis.ccbp.in/login', options)
     const data = await response.json()
     if (response.ok) {
-      console.log("I'm going home")
+      const {history} = this.props
+      Cookies.set('jwt_token', data.jwt_token, {expires: 30})
+      history.replace('/')
     } else {
       this.setState(prevState => ({
         isLoginFailed: !prevState.isLoginFailed,
@@ -51,10 +55,14 @@ class LoginForm extends Component {
   }
 
   render() {
+    if (Cookies.get('jwt_token') !== undefined) {
+      return <Redirect to="/" />
+    }
     return (
       <ToggleTheme.Consumer>
         {value => {
           const {isDarkTheme} = value
+          console.log(isDarkTheme)
           const {
             username,
             password,
