@@ -76,7 +76,7 @@ class Trending extends Component {
         {value => {
           const {isDarkTheme, ChangeTheme} = value
           return (
-            <HomeContainer>
+            <HomeContainer data-testid="trending">
               <Header ChangeTheme={ChangeTheme} />
               <BottomContainer>
                 <SideNav />

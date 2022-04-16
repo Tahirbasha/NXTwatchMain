@@ -31,11 +31,12 @@ const VideoCard = props => {
         const {isDarkTheme} = value
         const Time = formatDistanceToNow(new Date(publishedTime))
         return (
-          <Link to={`/videos/${id}`}>
-            <VideoContainer>
-              <LogoImg src={thumbnailUrl} alt="website logo" />
+          <VideoContainer>
+            {' '}
+            <Link to={`/videos/${id}`}>
+              <LogoImg src={thumbnailUrl} alt="video thumbnail" />
               <ChannelTitle>
-                <LogoImg src={profileImg} ImProfilePic />
+                <LogoImg src={profileImg} ImProfilePic alt="channel logo" />
                 <TheoryContainer>
                   <Title toggle={isDarkTheme}>{title}</Title>
                   <Name toggle={isDarkTheme}>{name}</Name>
@@ -47,8 +48,8 @@ const VideoCard = props => {
                   </ViewTime>
                 </TheoryContainer>
               </ChannelTitle>
-            </VideoContainer>
-          </Link>
+            </Link>
+          </VideoContainer>
         )
       }}
     </ToggleTheme.Consumer>

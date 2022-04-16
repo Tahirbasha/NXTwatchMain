@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-export const HomeContainer = styled.div``
-
+export const HomeContainer = styled.div`
+  background-color: ${props => (props.toggle ? '#0f0f0f' : '#f9f9f9')};
+`
 export const BottomContainer = styled.div`
   display: flex;
   width: 100vw; ;

@@ -28,6 +28,7 @@ import {
   EachVideoContainer,
   RetryBtn,
   OopsContainer,
+  SearchBtn,
 } from './styledComponents'
 
 class Home extends Component {
@@ -143,7 +144,10 @@ class Home extends Component {
                     NfToggle={HideVideoList}
                     toggle={isDarkTheme}
                   >
-                    <BannerContainer CancelBanner={showBanner}>
+                    <BannerContainer
+                      data-testid="banner"
+                      CancelBanner={showBanner}
+                    >
                       <ContentContainer>
                         <LogoImg src={LogoList[0]} alt="website logo" />
                         <AdvertLine>
@@ -161,10 +165,12 @@ class Home extends Component {
                         value={searchInput}
                         onChange={this.ChangeSearch}
                       />
-                      <BsSearch
-                        style={{color: '#7e858e'}}
+                      <SearchBtn
+                        data-testid="searchButton"
                         onClick={this.MakeSearch}
-                      />
+                      >
+                        <BsSearch style={{color: '#7e858e'}} />
+                      </SearchBtn>
                     </SearchContainer>
 
                     {isLoading ? <LoaderComponent /> : null}
@@ -184,7 +190,7 @@ class Home extends Component {
             )
           }
           return (
-            <HomeContainer>
+            <HomeContainer data-testid="home">
               <Header ChangeTheme={ChangeTheme} />
               <BottomContainer>
                 <SideNav />
@@ -194,14 +200,14 @@ class Home extends Component {
                 >
                   <BannerContainer CancelBanner={showBanner}>
                     <ContentContainer>
-                      <LogoImg src={LogoList[0]} alt="website logo" />
+                      <LogoImg src={LogoList[0]} alt="nxt watch logo" />
                       <AdvertLine>
                         Buy NXT Watch Premium prepaid plans with UPI
                       </AdvertLine>
                       <GetBtn>GET IT NOW</GetBtn>
                     </ContentContainer>
-                    <CancelBtn>
-                      <BsX onClick={this.CancelBanner} />
+                    <CancelBtn data-testid="close" onClick={this.CancelBanner}>
+                      <BsX />
                     </CancelBtn>
                   </BannerContainer>
                   <NFcontainer toggle={isDarkTheme}>

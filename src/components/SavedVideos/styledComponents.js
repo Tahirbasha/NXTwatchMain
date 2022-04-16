@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const HomeContainer = styled.div``
+export const HomeContainer = styled.div`
+  background-color: ${props => (props.toggle ? '#0f0f0f' : '#f9f9f9')};
+`
 
 export const BottomContainer = styled.div`
   display: flex;
@@ -27,7 +29,7 @@ export const GetBtn = styled.button`
 export const LogoImg = styled.img.attrs(props => ({
   src: props.src,
 }))`
-  height: 400px;
+  height: 200px;
   align-self: flex-start;
 `
 //  ${props => (props.maiHuNotFound ? '480px' : '40px')};
@@ -71,8 +73,8 @@ export const SearchBar = styled.input`
 `
 export const EachVideoContainer = styled.div`
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
   overflow: auto;
   height: 780px;
 `
@@ -112,7 +114,8 @@ export const Heading = styled.h1`
 `
 
 export const VideoContainer = styled.div`
-  width: 30%;
+  display: flex;
+  width: 90%;
   padding-top: 20px;
   margin-left: 20px;
 `

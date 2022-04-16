@@ -12,22 +12,33 @@ import SavedVideos from './components/SavedVideos'
 import VideoDetails from './components/VideoDetails'
 
 class App extends Component {
-  state = {isDarkTheme: false}
+  state = {isDarkTheme: false, saved: []}
+
+  addingVideos = Data => {
+    const {saved} = this.state
+    this.setState({saved: [...saved, Data]})
+  }
+
+  removeVideos = Data => {
+    const {saved} = this.state
+    const FilteredData = saved.filter(each => each.id !== Data.id)
+    this.setState({saved: FilteredData})
+  }
 
   onChangeTheme = () => {
     this.setState(prevState => ({isDarkTheme: !prevState.isDarkTheme}))
   }
 
   render() {
-    const {isDarkTheme} = this.state
+    const {isDarkTheme, saved} = this.state
     return (
       <ToggleTheme.Provider
         value={{
           isDarkTheme,
           ChangeTheme: this.onChangeTheme,
-          SavedVideoList: [],
-          onAddVideo: () => {},
-          onRemoveVideo: () => {},
+          SavedVideoList: saved,
+          onAddVideo: this.addingVideos,
+          onRemoveVideo: this.removeVideos,
         }}
       >
         <Switch>

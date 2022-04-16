@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
 import {AiFillFire} from 'react-icons/ai'
 
 import ToggleTheme from '../../context/ToggleTheme'
@@ -26,6 +26,7 @@ import {
   ViewsCount,
   Name,
   OopsContainer,
+  NFpara,
 } from './styledComponents'
 
 class SavedVideos extends Component {
@@ -60,8 +61,9 @@ class SavedVideos extends Component {
         {value => {
           const {isDarkTheme, ChangeTheme, SavedVideoList} = value
           const NotEmpty = SavedVideoList.length > 0
+          console.log(SavedVideoList)
           return (
-            <HomeContainer>
+            <HomeContainer data-testid="savedVideos">
               <Header ChangeTheme={ChangeTheme} />
               <BottomContainer>
                 <SideNav />
@@ -77,21 +79,31 @@ class SavedVideos extends Component {
                       {SavedVideoList.map(each => {
                         console.log(each)
 
-                        const {thumbnailUrl, title, viewCount} = each
+                        const {
+                          id,
+                          thumbnailUrl,
+                          title,
+                          viewCount,
+                          name,
+                          publishedTime,
+                        } = each
                         return (
                           <VideoContainer>
-                            <LogoImg src={thumbnailUrl} alt="website logo" />
-                            <ChannelTitle>
-                              <TheoryContainer>
-                                <Title toggle={isDarkTheme}>{title}</Title>
+                            <Link to={`/videos/${id}`}>
+                              <LogoImg src={thumbnailUrl} alt="website logo" />
+                              <ChannelTitle>
+                                <TheoryContainer>
+                                  <Title toggle={isDarkTheme}>{title}</Title>
+                                  <NFpara toggle={isDarkTheme}>{name}</NFpara>
 
-                                <ViewTime>
-                                  <ViewsCount toggle={isDarkTheme}>
-                                    {viewCount} Worldwide watching
-                                  </ViewsCount>
-                                </ViewTime>
-                              </TheoryContainer>
-                            </ChannelTitle>
+                                  <ViewTime>
+                                    <ViewsCount toggle={isDarkTheme}>
+                                      {viewCount} views . {publishedTime}
+                                    </ViewsCount>
+                                  </ViewTime>
+                                </TheoryContainer>
+                              </ChannelTitle>
+                            </Link>
                           </VideoContainer>
                         )
                       })}

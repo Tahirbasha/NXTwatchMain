@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const HomeContainer = styled.div``
+export const HomeContainer = styled.div`
+  background-color: ${props => (props.toggle ? '#0f0f0f' : '#f9f9f9')};
+`
 
 export const BottomContainer = styled.div`
   display: flex;
@@ -119,6 +121,7 @@ export const VideoContainer = styled.div`
 
 export const ChannelTitle = styled.div`
   display: flex;
+  width: 100%;
 `
 
 export const Name = styled.p`
@@ -136,10 +139,10 @@ export const Title = styled.h1`
 `
 
 export const TheoryContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 12px;
+  //   display: flex;
+  //   flex-direction: column;
+  //   //   align-items: flex-start;
+  //   margin-left: 12px;
 `
 
 export const ViewsCount = styled.p`

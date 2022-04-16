@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const HomeContainer = styled.div``
+export const HomeContainer = styled.div`
+  background-color: ${props => (props.toggle ? '#181818' : '#f9f9f9')};
+`
 
 export const BottomContainer = styled.div`
   display: flex;
@@ -98,4 +100,9 @@ export const RetryBtn = styled.button`
   outline: none;
   border-radius: 8px;
   border: none;
+`
+export const SearchBtn = styled.button`
+  background-color: transparent;
+  outline: none;
+  border: 0px;
 `

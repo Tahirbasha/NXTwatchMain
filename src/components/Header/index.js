@@ -16,6 +16,7 @@ import {
   CancelBtn,
   ConfirmBtn,
   BtnContainer,
+  ThemeBtn,
 } from './styledComponents'
 
 const Header = props => {
@@ -49,13 +50,17 @@ const Header = props => {
             </Link>
             <SettingContainer>
               {isDarkTheme ? (
-                <RiSunLine
-                  color="#ffffff"
-                  font-size="25px"
-                  onClick={ChangeMode}
-                />
+                <ThemeBtn data-testid="theme" onClick={ChangeMode}>
+                  <RiSunLine
+                    color="#ffffff"
+                    font-size="25px"
+                    onClick={ChangeMode}
+                  />
+                </ThemeBtn>
               ) : (
-                <RiMoonFill font-size="25px" onClick={ChangeMode} />
+                <ThemeBtn data-testid="theme" onClick={ChangeMode}>
+                  <RiMoonFill font-size="25px" />
+                </ThemeBtn>
               )}
               <img
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
@@ -70,7 +75,7 @@ const Header = props => {
                   <LogOutBtn
                     type="button"
                     toggle={isDarkTheme}
-                    style={{border: 'none'}}
+                    // style={{border: 'none'}}
                   >
                     Logout
                   </LogOutBtn>

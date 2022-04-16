@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const VideoContainer = styled.div`
-  width: 20%;
+  width: 28%;
   margin-left: 20px;
 `
 

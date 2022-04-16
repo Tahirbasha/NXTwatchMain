@@ -2,7 +2,10 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
 import ReactPlayer from 'react-player'
-import {formatDistanceToNow} from 'date-fns'
+// import {formatDistanceToNow} from 'date-fns'
+import {AiOutlineDislike, AiOutlineLike} from 'react-icons/ai'
+import {BiListPlus} from 'react-icons/bi'
+
 import ToggleTheme from '../../context/ToggleTheme'
 import Header from '../Header'
 import SideNav from '../SideNav'
@@ -17,6 +20,11 @@ import {
   ViewandBtnContainer,
   ViewContainer,
   BtnContainer,
+  Like,
+  LikeContainer,
+  PNSContainer,
+  NSContainer,
+  LikeBtn,
 } from './styledComponents'
 
 class VideoDetails extends Component {
@@ -24,6 +32,9 @@ class VideoDetails extends Component {
     isLoading: false,
     fetchFailed: false,
     VideosList: [],
+    positiveLiked: false,
+    negitiveLiked: false,
+    isExist: false,
   }
 
   componentDidMount() {
@@ -44,7 +55,7 @@ class VideoDetails extends Component {
       const response = await fetch(`https://apis.ccbp.in/videos/${id}`, options)
       const data = await response.json()
       console.log(response.ok, 'daffaad')
-      console.log(data)
+      //   console.log(data)
       if (response.ok) {
         const temp = data.video_details
         const UpdatedData = {
@@ -62,23 +73,47 @@ class VideoDetails extends Component {
         this.setState({isLoading: false, VideosList: UpdatedData})
       }
     } catch {
-      console.log('fetch failed')
+      //   console.log('fetch failed')
       this.setState({fetchFailed: true, isLoading: false})
     }
   }
 
+  toggleSaveStatus = () => {
+    this.setState(prevState => ({isExist: !prevState.isExist}))
+  }
+
+  onLikeClick = () => {
+    this.setState(prevState => ({
+      positiveLiked: !prevState.positiveLiked,
+      negitiveLiked: false,
+    }))
+  }
+
+  onDislikeClick = () => {
+    this.setState(prevState => ({
+      negitiveLiked: !prevState.negitiveLiked,
+      positiveLiked: false,
+    }))
+  }
+
   render() {
-    const {isLoading, fetchFailed, VideosList} = this.state
-    console.log(VideosList)
     const {
-      //   name,
-      //   profileImg,
-      //   subscriberCount,
+      isLoading,
+      fetchFailed,
+      VideosList,
+      positiveLiked,
+      negitiveLiked,
+      isExist,
+    } = this.state
+    // console.log(VideosList)
+    const {
+      name,
+      profileImg,
+      subscriberCount,
       publishedTime,
-      //   thumbnailUrl,
       title,
       viewCount,
-      //   description,
+      description,
       Url,
     } = VideosList
     // const Time = formatDistanceToNow(new Date(publishedTime))
@@ -90,28 +125,107 @@ class VideoDetails extends Component {
     return (
       <ToggleTheme.Consumer>
         {value => {
-          const {isDarkTheme, ChangeTheme} = value
+          const {isDarkTheme, ChangeTheme, onAddVideo, onRemoveVideo} = value
+          const toggleSaved = () => {
+            this.toggleSaveStatus()
+            console.log(isExist)
+            if (isExist) {
+              onRemoveVideo(VideosList)
+            } else {
+              onAddVideo(VideosList)
+            }
+          }
           return (
-            <HomeContainer>
+            <HomeContainer data-testid="videoItemDetails">
               <Header ChangeTheme={ChangeTheme} />
               <BottomContainer>
                 <SideNav />
                 <HomeVideoContainer toggle={isDarkTheme}>
                   {isLoading ? <LoaderComponent /> : null}
                   {fetchFailed && <FetchError fail={this.getVideos} />}
-                  <ReactPlayer url={Url} controls />
+                  <ReactPlayer url={Url} controls style={{width: '85%'}} />
                   <Heading toggle={isDarkTheme}>{title}</Heading>
                   <ViewandBtnContainer>
                     <ViewContainer toggle={isDarkTheme}>
-                      <Heading para toggle={isDarkTheme}>
+                      <Heading
+                        para
+                        toggle={isDarkTheme}
+                        style={{marginRight: '8px'}}
+                      >
                         {viewCount}
                       </Heading>
-                      {/* <Heading para toggle={isDarkTheme}>
-                        {Time}
-                      </Heading> */}
+                      <Heading para toggle={isDarkTheme}>
+                        {publishedTime}
+                      </Heading>
                     </ViewContainer>
-                    <BtnContainer toggle={isDarkTheme}>buttons</BtnContainer>
+                    <BtnContainer toggle={isDarkTheme}>
+                      <LikeContainer toggle={isDarkTheme}>
+                        <LikeBtn
+                          style={{
+                            color: positiveLiked ? '#2563eb' : '#64748b',
+                          }}
+                          onClick={this.onLikeClick}
+                        >
+                          <AiOutlineLike />
+                          <Like>Like</Like>
+                        </LikeBtn>
+                      </LikeContainer>
+
+                      <LikeContainer toggle={isDarkTheme}>
+                        <LikeBtn
+                          style={{
+                            color: negitiveLiked ? '#2563eb ' : '#64748b',
+                          }}
+                          onClick={this.onDislikeClick}
+                        >
+                          <AiOutlineDislike />
+                          <Like>Dislike</Like>
+                        </LikeBtn>
+                      </LikeContainer>
+                      <LikeContainer toggle={isDarkTheme}>
+                        <LikeBtn
+                          onClick={toggleSaved}
+                          style={{
+                            color: isExist ? '#2563eb ' : '#64748b',
+                          }}
+                        >
+                          <BiListPlus />
+                          <Like>{isExist ? 'Saved' : 'Save'}</Like>
+                        </LikeBtn>
+                      </LikeContainer>
+                    </BtnContainer>
                   </ViewandBtnContainer>
+                  <hr
+                    style={{
+                      width: '85%',
+                      color: isDarkTheme ? '#cbd5e1' : '#000000',
+                    }}
+                  />
+                  <PNSContainer toggle={isDarkTheme}>
+                    <img
+                      src={profileImg}
+                      alt="profile logo"
+                      height="40px"
+                      width="40px"
+                    />
+                    <NSContainer>
+                      <Heading para toggle={isDarkTheme}>
+                        {name}
+                      </Heading>
+                      <Heading para toggle={isDarkTheme}>
+                        {subscriberCount} subscribers
+                      </Heading>
+                    </NSContainer>
+                  </PNSContainer>
+                  <Heading
+                    para
+                    style={{
+                      width: '85%',
+                      color: isDarkTheme ? '#cbd5e1' : '#000000',
+                    }}
+                  >
+                    {description}
+                  </Heading>
                 </HomeVideoContainer>
               </BottomContainer>
             </HomeContainer>

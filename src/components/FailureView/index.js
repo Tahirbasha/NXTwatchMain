@@ -28,7 +28,7 @@ const FetchError = props => {
           <OopsContainer toggle={isDarkTheme}>
             <LogoImg
               src={isDarkTheme ? PicList[0] : PicList[1]}
-              alt="failureView"
+              alt="failure view"
             />
             <NFheading toggle={isDarkTheme}>
               Oops! Something Went Wrong

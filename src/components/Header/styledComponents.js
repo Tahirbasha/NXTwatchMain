@@ -65,3 +65,8 @@ export const BtnContainer = styled.div`
   //   align-self: stretch;
   width: 20%;
 `
+export const ThemeBtn = styled.button`
+  background-color: transparent;
+  outline: none;
+  border: 0px;
+`

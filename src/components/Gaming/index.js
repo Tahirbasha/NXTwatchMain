@@ -19,7 +19,6 @@ import {
   Heading,
   VideoContainer,
   LogoImg,
-  ChannelTitle,
   TheoryContainer,
   Title,
   ViewTime,
@@ -78,7 +77,7 @@ class Gaming extends Component {
         {value => {
           const {isDarkTheme, ChangeTheme} = value
           return (
-            <HomeContainer>
+            <HomeContainer data-testid="gaming">
               <Header ChangeTheme={ChangeTheme} />
               <BottomContainer>
                 <SideNav />
@@ -98,22 +97,23 @@ class Gaming extends Component {
 
                         const {id, thumbnailUrl, title, viewCount} = each
                         return (
-                          <Link to={`/videos/${id}`}>
-                            <VideoContainer>
-                              <LogoImg src={thumbnailUrl} alt="website logo" />
-                              <ChannelTitle>
-                                <TheoryContainer>
-                                  <Title toggle={isDarkTheme}>{title}</Title>
+                          <VideoContainer>
+                            <Link to={`/videos/${id}`}>
+                              <LogoImg
+                                src={thumbnailUrl}
+                                alt="video thumbnail"
+                              />
+                              <TheoryContainer>
+                                <Title toggle={isDarkTheme}>{title}</Title>
 
-                                  <ViewTime>
-                                    <ViewsCount toggle={isDarkTheme}>
-                                      {viewCount} Worldwide watching
-                                    </ViewsCount>
-                                  </ViewTime>
-                                </TheoryContainer>
-                              </ChannelTitle>
-                            </VideoContainer>
-                          </Link>
+                                <ViewTime>
+                                  <ViewsCount toggle={isDarkTheme}>
+                                    {viewCount} Worldwide watching
+                                  </ViewsCount>
+                                </ViewTime>
+                              </TheoryContainer>
+                            </Link>
+                          </VideoContainer>
                         )
                       })}
                     </EachVideoContainer>
