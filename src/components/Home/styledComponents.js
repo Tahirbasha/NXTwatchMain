@@ -9,7 +9,7 @@ export const BottomContainer = styled.div`
   width: 100vw; ;
 `
 export const HomeVideoContainer = styled.div`
-  background-color: ${props => (props.toggle ? '#212121' : '#f4f4f4')};
+  background-color: ${props => (props.toggle ? '#181818' : '#f9f9f9')};
   width: 85vw;
   display: flex;
   flex-direction: column;
@@ -81,7 +81,7 @@ export const SearchBar = styled.input`
   padding: 5px;
   outline: none;
 `
-export const EachVideoContainer = styled.div`
+export const EachVideoContainer = styled.ul`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;

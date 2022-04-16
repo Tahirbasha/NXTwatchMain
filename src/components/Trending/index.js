@@ -4,8 +4,7 @@ import {Redirect} from 'react-router-dom'
 import {AiFillFire} from 'react-icons/ai'
 
 import ToggleTheme from '../../context/ToggleTheme'
-import Header from '../Header'
-import SideNav from '../SideNav'
+
 import LoaderComponent from '../Loader'
 import VideoCard from '../VideoCard'
 import FetchError from '../FailureView'
@@ -44,7 +43,7 @@ class Trending extends Component {
         options,
       )
       const data = await response.json()
-      console.log(response.ok, 'daffaad')
+
       if (response.ok) {
         const UpdatedData = data.videos.map(each => ({
           id: each.id,
@@ -74,27 +73,29 @@ class Trending extends Component {
     return (
       <ToggleTheme.Consumer>
         {value => {
-          const {isDarkTheme, ChangeTheme} = value
+          const {isDarkTheme} = value
           return (
-            <HomeContainer data-testid="trending">
-              <Header ChangeTheme={ChangeTheme} />
+            <HomeContainer toggle={isDarkTheme} data-testid="trending">
               <BottomContainer>
-                <SideNav />
                 <HomeVideoContainer toggle={isDarkTheme}>
-                  <HeaderContainer toggle={isDarkTheme}>
-                    <IconContainer toggle={isDarkTheme}>
-                      <AiFillFire style={{color: 'red', fontSize: '30px'}} />
-                    </IconContainer>
-                    <Heading toggle={isDarkTheme}>Trending</Heading>
-                  </HeaderContainer>
-                  {isLoading ? <LoaderComponent /> : null}
                   {fetchFailed && <FetchError fail={this.getVideos} />}
+                  {isLoading ? <LoaderComponent /> : null}
                   {!fetchFailed && (
-                    <EachVideoContainer>
-                      {VideosList.map(each => (
-                        <VideoCard itemDetails={each} key={each.id} />
-                      ))}
-                    </EachVideoContainer>
+                    <>
+                      <HeaderContainer toggle={isDarkTheme}>
+                        <IconContainer toggle={isDarkTheme}>
+                          <AiFillFire
+                            style={{color: 'red', fontSize: '30px'}}
+                          />
+                        </IconContainer>
+                        <Heading toggle={isDarkTheme}>Trending</Heading>
+                      </HeaderContainer>
+                      <EachVideoContainer>
+                        {VideosList.map(each => (
+                          <VideoCard itemDetails={each} key={each.id} />
+                        ))}
+                      </EachVideoContainer>
+                    </>
                   )}
                 </HomeVideoContainer>
               </BottomContainer>

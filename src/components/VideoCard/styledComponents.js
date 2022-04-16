@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-export const VideoContainer = styled.div`
+export const VideoContainer = styled.li`
+  list-style-type: none;
   width: 28%;
   margin-left: 20px;
 `
@@ -21,7 +22,7 @@ export const Name = styled.p`
   font-family: Roboto;
 `
 
-export const Title = styled.h1`
+export const Title = styled.p`
   color: ${props => (props.toggle ? '#d7dfe9' : '#212121')};
   font-size: 16px;
   font-weight: 500;

@@ -27,17 +27,13 @@ const FetchError = props => {
         return (
           <OopsContainer toggle={isDarkTheme}>
             <LogoImg
-              src={isDarkTheme ? PicList[0] : PicList[1]}
+              src={isDarkTheme ? PicList[1] : PicList[0]}
               alt="failure view"
             />
             <NFheading toggle={isDarkTheme}>
               Oops! Something Went Wrong
             </NFheading>
-            <NFpara toggle={isDarkTheme}>
-              We are having some trouble to complete your request.
-              <br />
-              Please try again.
-            </NFpara>
+            <NFpara toggle={isDarkTheme}>We are having some trouble</NFpara>
             <RetryBtn onClick={MakeSearch}>Retry</RetryBtn>
           </OopsContainer>
         )

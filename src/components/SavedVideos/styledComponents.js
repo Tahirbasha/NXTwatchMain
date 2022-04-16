@@ -6,7 +6,8 @@ export const HomeContainer = styled.div`
 
 export const BottomContainer = styled.div`
   display: flex;
-  width: 100vw; ;
+  width: 100vw;
+  height: 150vh;
 `
 export const HomeVideoContainer = styled.div`
   background-color: ${props => (props.toggle ? '#212121' : '#f4f4f4')};
@@ -71,7 +72,7 @@ export const SearchBar = styled.input`
   padding: 5px;
   outline: none;
 `
-export const EachVideoContainer = styled.div`
+export const EachVideoContainer = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -124,14 +125,14 @@ export const ChannelTitle = styled.div`
   display: flex;
 `
 
-export const Name = styled.p`
+export const Name = styled.h1`
   color: ${props => (props.toggle ? '#d7dfe9' : '#212121')};
   font-size: 25px;
   font-weight: 500;
   font-family: Roboto;
 `
 
-export const Title = styled.h1`
+export const Title = styled.p`
   color: ${props => (props.toggle ? '#d7dfe9' : '#212121')};
   font-size: 22px;
   font-weight: 500;

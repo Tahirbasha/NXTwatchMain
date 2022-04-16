@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const HomeContainer = styled.div`
+export const HomeContainer = styled.ul`
   background-color: ${props => (props.toggle ? '#0f0f0f' : '#f9f9f9')};
 `
 export const BottomContainer = styled.div`
@@ -8,7 +8,7 @@ export const BottomContainer = styled.div`
   width: 100vw; ;
 `
 export const HomeVideoContainer = styled.div`
-  background-color: ${props => (props.toggle ? '#212121' : '#f4f4f4')};
+  background-color: ${props => (props.toggle ? '#0f0f0f' : '#f9f9f9')};
   width: 85vw;
   display: flex;
   flex-direction: column;

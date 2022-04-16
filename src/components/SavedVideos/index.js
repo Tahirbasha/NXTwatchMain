@@ -4,8 +4,7 @@ import {Redirect, Link} from 'react-router-dom'
 import {AiFillFire} from 'react-icons/ai'
 
 import ToggleTheme from '../../context/ToggleTheme'
-import Header from '../Header'
-import SideNav from '../SideNav'
+
 // import LoaderComponent from '../Loader'
 // import FetchError from '../FailureView'
 
@@ -42,9 +41,7 @@ class SavedVideos extends Component {
         alt="no saved videos"
       />
       <Name toggle={isDarkTheme}>No saved videos found</Name>
-      <Title toggle={isDarkTheme}>
-        You can save your videos while watching them.
-      </Title>
+      <Title toggle={isDarkTheme}>Save your videos by clicking a button</Title>
     </OopsContainer>
   )
 
@@ -59,21 +56,28 @@ class SavedVideos extends Component {
     return (
       <ToggleTheme.Consumer>
         {value => {
-          const {isDarkTheme, ChangeTheme, SavedVideoList} = value
+          const {isDarkTheme, SavedVideoList} = value
           const NotEmpty = SavedVideoList.length > 0
+          const HeadRender = () => {
+            if (NotEmpty) {
+              return (
+                <HeaderContainer toggle={isDarkTheme}>
+                  <IconContainer toggle={isDarkTheme}>
+                    <AiFillFire style={{color: 'red', fontSize: '30px'}} />
+                  </IconContainer>
+                  <Heading toggle={isDarkTheme}>Saved Videos</Heading>
+                </HeaderContainer>
+              )
+            }
+            return null
+          }
+
           console.log(SavedVideoList)
           return (
             <HomeContainer data-testid="savedVideos">
-              <Header ChangeTheme={ChangeTheme} />
               <BottomContainer>
-                <SideNav />
                 <HomeVideoContainer toggle={isDarkTheme}>
-                  <HeaderContainer toggle={isDarkTheme}>
-                    <IconContainer toggle={isDarkTheme}>
-                      <AiFillFire style={{color: 'red', fontSize: '30px'}} />
-                    </IconContainer>
-                    <Heading toggle={isDarkTheme}>Saved Videos</Heading>
-                  </HeaderContainer>
+                  {HeadRender()}
                   {NotEmpty ? (
                     <EachVideoContainer>
                       {SavedVideoList.map(each => {
@@ -90,7 +94,10 @@ class SavedVideos extends Component {
                         return (
                           <VideoContainer>
                             <Link to={`/videos/${id}`}>
-                              <LogoImg src={thumbnailUrl} alt="website logo" />
+                              <LogoImg
+                                src={thumbnailUrl}
+                                alt="video thumbnail"
+                              />
                               <ChannelTitle>
                                 <TheoryContainer>
                                   <Title toggle={isDarkTheme}>{title}</Title>

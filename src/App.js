@@ -10,6 +10,8 @@ import Trending from './components/Trending'
 import Gaming from './components/Gaming'
 import SavedVideos from './components/SavedVideos'
 import VideoDetails from './components/VideoDetails'
+import Header from './components/Header'
+import SideNav from './components/SideNav'
 
 class App extends Component {
   state = {isDarkTheme: false, saved: []}
@@ -43,12 +45,20 @@ class App extends Component {
       >
         <Switch>
           <Route exact path="/login" component={LoginForm} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/trending" component={Trending} />
-          <Route exact path="/gaming" component={Gaming} />
-          <Route exact path="/saved-videos" component={SavedVideos} />
-          <Route exact path="/videos/:id" component={VideoDetails} />
-          <Route component={NotFound} />
+          <>
+            <Header ChangeTheme={this.onChangeTheme} />
+            <div className="Bottom_container">
+              <SideNav />
+              <>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/trending" component={Trending} />
+                <Route exact path="/gaming" component={Gaming} />
+                <Route exact path="/saved-videos" component={SavedVideos} />
+                <Route exact path="/videos/:id" component={VideoDetails} />
+                <Route component={NotFound} />
+              </>
+            </div>
+          </>
         </Switch>
       </ToggleTheme.Provider>
     )

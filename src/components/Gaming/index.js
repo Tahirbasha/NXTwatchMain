@@ -4,8 +4,7 @@ import {Redirect, Link} from 'react-router-dom'
 import {RiGamepadFill} from 'react-icons/ri'
 
 import ToggleTheme from '../../context/ToggleTheme'
-import Header from '../Header'
-import SideNav from '../SideNav'
+
 import LoaderComponent from '../Loader'
 import FetchError from '../FailureView'
 
@@ -75,48 +74,50 @@ class Gaming extends Component {
     return (
       <ToggleTheme.Consumer>
         {value => {
-          const {isDarkTheme, ChangeTheme} = value
+          const {isDarkTheme} = value
           return (
-            <HomeContainer data-testid="gaming">
-              <Header ChangeTheme={ChangeTheme} />
+            <HomeContainer toggle={isDarkTheme} data-testid="gaming">
               <BottomContainer>
-                <SideNav />
                 <HomeVideoContainer toggle={isDarkTheme}>
-                  <HeaderContainer toggle={isDarkTheme}>
-                    <IconContainer toggle={isDarkTheme}>
-                      <RiGamepadFill style={{color: 'red', fontSize: '30px'}} />
-                    </IconContainer>
-                    <Heading toggle={isDarkTheme}>Gaming</Heading>
-                  </HeaderContainer>
                   {isLoading ? <LoaderComponent /> : null}
                   {fetchFailed && <FetchError fail={this.getVideos} />}
                   {!fetchFailed && (
-                    <EachVideoContainer>
-                      {VideosList.map(each => {
-                        console.log(each)
+                    <>
+                      <HeaderContainer toggle={isDarkTheme}>
+                        <IconContainer toggle={isDarkTheme}>
+                          <RiGamepadFill
+                            style={{color: 'red', fontSize: '30px'}}
+                          />
+                        </IconContainer>
+                        <Heading toggle={isDarkTheme}>Gaming</Heading>
+                      </HeaderContainer>
+                      <EachVideoContainer>
+                        {VideosList.map(each => {
+                          console.log(each)
 
-                        const {id, thumbnailUrl, title, viewCount} = each
-                        return (
-                          <VideoContainer>
-                            <Link to={`/videos/${id}`}>
-                              <LogoImg
-                                src={thumbnailUrl}
-                                alt="video thumbnail"
-                              />
-                              <TheoryContainer>
-                                <Title toggle={isDarkTheme}>{title}</Title>
+                          const {id, thumbnailUrl, title, viewCount} = each
+                          return (
+                            <VideoContainer key={id}>
+                              <Link to={`/videos/${id}`}>
+                                <LogoImg
+                                  src={thumbnailUrl}
+                                  alt="video thumbnail"
+                                />
+                                <TheoryContainer>
+                                  <Title toggle={isDarkTheme}>{title}</Title>
 
-                                <ViewTime>
-                                  <ViewsCount toggle={isDarkTheme}>
-                                    {viewCount} Worldwide watching
-                                  </ViewsCount>
-                                </ViewTime>
-                              </TheoryContainer>
-                            </Link>
-                          </VideoContainer>
-                        )
-                      })}
-                    </EachVideoContainer>
+                                  <ViewTime>
+                                    <ViewsCount toggle={isDarkTheme}>
+                                      {viewCount} Worldwide watching
+                                    </ViewsCount>
+                                  </ViewTime>
+                                </TheoryContainer>
+                              </Link>
+                            </VideoContainer>
+                          )
+                        })}
+                      </EachVideoContainer>
+                    </>
                   )}
                 </HomeVideoContainer>
               </BottomContainer>

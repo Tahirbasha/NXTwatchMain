@@ -7,8 +7,7 @@ import {AiOutlineDislike, AiOutlineLike} from 'react-icons/ai'
 import {BiListPlus} from 'react-icons/bi'
 
 import ToggleTheme from '../../context/ToggleTheme'
-import Header from '../Header'
-import SideNav from '../SideNav'
+
 import LoaderComponent from '../Loader'
 import FetchError from '../FailureView'
 
@@ -54,7 +53,6 @@ class VideoDetails extends Component {
     try {
       const response = await fetch(`https://apis.ccbp.in/videos/${id}`, options)
       const data = await response.json()
-      console.log(response.ok, 'daffaad')
       //   console.log(data)
       if (response.ok) {
         const temp = data.video_details
@@ -125,7 +123,7 @@ class VideoDetails extends Component {
     return (
       <ToggleTheme.Consumer>
         {value => {
-          const {isDarkTheme, ChangeTheme, onAddVideo, onRemoveVideo} = value
+          const {isDarkTheme, onAddVideo, onRemoveVideo} = value
           const toggleSaved = () => {
             this.toggleSaveStatus()
             console.log(isExist)
@@ -137,9 +135,7 @@ class VideoDetails extends Component {
           }
           return (
             <HomeContainer data-testid="videoItemDetails">
-              <Header ChangeTheme={ChangeTheme} />
               <BottomContainer>
-                <SideNav />
                 <HomeVideoContainer toggle={isDarkTheme}>
                   {isLoading ? <LoaderComponent /> : null}
                   {fetchFailed && <FetchError fail={this.getVideos} />}
@@ -161,10 +157,10 @@ class VideoDetails extends Component {
                     <BtnContainer toggle={isDarkTheme}>
                       <LikeContainer toggle={isDarkTheme}>
                         <LikeBtn
-                          style={{
-                            color: positiveLiked ? '#2563eb' : '#64748b',
-                          }}
                           onClick={this.onLikeClick}
+                          style={{
+                            color: positiveLiked ? '#2563eb ' : '#64748b',
+                          }}
                         >
                           <AiOutlineLike />
                           <Like>Like</Like>
@@ -173,10 +169,10 @@ class VideoDetails extends Component {
 
                       <LikeContainer toggle={isDarkTheme}>
                         <LikeBtn
+                          onClick={this.onDislikeClick}
                           style={{
                             color: negitiveLiked ? '#2563eb ' : '#64748b',
                           }}
-                          onClick={this.onDislikeClick}
                         >
                           <AiOutlineDislike />
                           <Like>Dislike</Like>
@@ -204,7 +200,7 @@ class VideoDetails extends Component {
                   <PNSContainer toggle={isDarkTheme}>
                     <img
                       src={profileImg}
-                      alt="profile logo"
+                      alt="channel logo"
                       height="40px"
                       width="40px"
                     />

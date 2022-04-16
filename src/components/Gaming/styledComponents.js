@@ -6,10 +6,11 @@ export const HomeContainer = styled.div`
 
 export const BottomContainer = styled.div`
   display: flex;
-  width: 100vw; ;
+  width: 100vw;
+  height: 150vh;
 `
 export const HomeVideoContainer = styled.div`
-  background-color: ${props => (props.toggle ? '#212121' : '#f4f4f4')};
+  background-color: ${props => (props.toggle ? '#0f0f0f' : '#f9f9f9')};
   width: 85vw;
   display: flex;
   flex-direction: column;
@@ -71,7 +72,7 @@ export const SearchBar = styled.input`
   padding: 5px;
   outline: none;
 `
-export const EachVideoContainer = styled.div`
+export const EachVideoContainer = styled.ul`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -113,7 +114,8 @@ export const Heading = styled.h1`
   margin-left: 10px;
 `
 
-export const VideoContainer = styled.div`
+export const VideoContainer = styled.li`
+  list-style-type: none;
   width: 30%;
   padding-top: 20px;
   margin-left: 20px;
@@ -131,7 +133,7 @@ export const Name = styled.p`
   font-family: Roboto;
 `
 
-export const Title = styled.h1`
+export const Title = styled.p`
   color: ${props => (props.toggle ? '#d7dfe9' : '#212121')};
   font-size: 22px;
   font-weight: 500;

@@ -16,7 +16,7 @@ export const HomeVideoContainer = styled.div`
   align-items: center;
   padding-top: 18px;
 `
-export const Heading = styled.h1`
+export const Heading = styled.p`
   color: ${props => (props.toggle ? '#f4f4f4' : '#212121')};
   font-family: roboto;
   font-size: ${props => (props.para ? '15px' : '25px')};

@@ -7,13 +7,11 @@ export const SideContainer = styled.div`
   padding: 0px;
   width: 18%;
   height: 150vh;
+  list-style-type: none;
   background-color: ${props => (props.toggle ? '#181818' : '#ffffff')};
 `
-export const UlContaner = styled.ul`
-  list-style-type: none;
-`
 
-export const ListItem = styled.li`
+export const ListItem = styled.div`
   display: flex;
   align-items: center;
   width: 100%;

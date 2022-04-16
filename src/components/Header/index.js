@@ -29,6 +29,7 @@ const Header = props => {
     Cookies.remove('jwt_token')
     history.replace('/login')
   }
+
   return (
     <ToggleTheme.Consumer>
       {value => {
@@ -51,11 +52,7 @@ const Header = props => {
             <SettingContainer>
               {isDarkTheme ? (
                 <ThemeBtn data-testid="theme" onClick={ChangeMode}>
-                  <RiSunLine
-                    color="#ffffff"
-                    font-size="25px"
-                    onClick={ChangeMode}
-                  />
+                  <RiSunLine color="#ffffff" font-size="25px" />
                 </ThemeBtn>
               ) : (
                 <ThemeBtn data-testid="theme" onClick={ChangeMode}>
@@ -68,15 +65,10 @@ const Header = props => {
                 height="40px"
                 width="40px"
               />
-
               <Popup
                 modal
                 trigger={
-                  <LogOutBtn
-                    type="button"
-                    toggle={isDarkTheme}
-                    // style={{border: 'none'}}
-                  >
+                  <LogOutBtn type="button" toggle={isDarkTheme}>
                     Logout
                   </LogOutBtn>
                 }
@@ -91,7 +83,7 @@ const Header = props => {
                         fontSize: '22px',
                       }}
                     >
-                      Are you sure you want to logout?
+                      Are you sure, you want to logout
                     </p>
                     <BtnContainer>
                       <CancelBtn type="button" onClick={() => close()}>

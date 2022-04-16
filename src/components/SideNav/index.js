@@ -6,7 +6,6 @@ import ToggleTheme from '../../context/ToggleTheme'
 
 import {
   SideContainer,
-  UlContaner,
   ListItem,
   ItemPara,
   FooterContainer,
@@ -20,40 +19,39 @@ const SideNav = () => (
       const {isDarkTheme} = value
       return (
         <SideContainer toggle={isDarkTheme}>
-          <UlContaner>
-            <ListItem toggle={isDarkTheme}>
-              <AiFillHome />
-              <ItemPara>
-                <Link to="/" style={{textDecoration: 'none'}}>
-                  Home
-                </Link>
-              </ItemPara>
-            </ListItem>
-            <ListItem toggle={isDarkTheme}>
-              <AiFillFire />
-              <ItemPara>
-                <Link to="/trending" style={{textDecoration: 'none'}}>
-                  Trending
-                </Link>
-              </ItemPara>
-            </ListItem>
-            <ListItem toggle={isDarkTheme}>
-              <RiGamepadFill />
-              <ItemPara>
-                <Link to="/gaming" style={{textDecoration: 'none'}}>
-                  Gaming
-                </Link>
-              </ItemPara>
-            </ListItem>
-            <ListItem toggle={isDarkTheme}>
-              <RiPlayListAddFill />
-              <ItemPara>
-                <Link to="/saved-videos" style={{textDecoration: 'none'}}>
-                  Saved videos
-                </Link>
-              </ItemPara>
-            </ListItem>
-          </UlContaner>
+          <ListItem toggle={isDarkTheme}>
+            <AiFillHome />
+            <ItemPara>
+              <Link to="/" style={{textDecoration: 'none'}}>
+                Home
+              </Link>
+            </ItemPara>
+          </ListItem>
+          <ListItem toggle={isDarkTheme}>
+            <AiFillFire />
+            <ItemPara>
+              <Link to="/trending" style={{textDecoration: 'none'}}>
+                Trending
+              </Link>
+            </ItemPara>
+          </ListItem>
+          <ListItem toggle={isDarkTheme}>
+            <RiGamepadFill />
+            <ItemPara>
+              <Link to="/gaming" style={{textDecoration: 'none'}}>
+                Gaming
+              </Link>
+            </ItemPara>
+          </ListItem>
+          <ListItem toggle={isDarkTheme}>
+            <RiPlayListAddFill />
+            <ItemPara>
+              <Link to="/saved-videos" style={{textDecoration: 'none'}}>
+                Saved videos
+              </Link>
+            </ItemPara>
+          </ListItem>
+
           <FooterContainer>
             <ContactPara>CONTACT US</ContactPara>
             <SocialLogos>

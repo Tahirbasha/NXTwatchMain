@@ -4,8 +4,8 @@ import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
 
 import ToggleTheme from '../../context/ToggleTheme'
-import Header from '../Header'
-import SideNav from '../SideNav'
+// import Header from '../Header'
+// import SideNav from '../SideNav'
 import LoaderComponent from '../Loader'
 import VideoCard from '../VideoCard'
 import FetchError from '../FailureView'
@@ -20,7 +20,7 @@ import {
   LogoImg,
   AdvertLine,
   CancelBtn,
-  NFcontainer,
+  //   NFcontainer,
   NFheading,
   NFpara,
   SearchContainer,
@@ -58,7 +58,7 @@ class Home extends Component {
         options,
       )
       const data = await response.json()
-      console.log(response.ok, 'daffaad')
+
       if (response.ok) {
         const UpdatedData = data.videos.map(each => ({
           id: each.id,
@@ -112,19 +112,18 @@ class Home extends Component {
       VideosList,
       fetchFailed,
     } = this.state
-    const EmptyList = VideosList.length === 0
-    const {HideVideoList} = this.props
+    const EmptyList = VideosList.length === 0 && !fetchFailed
 
     const LogoList = [
       'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png',
 
       'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png',
     ]
-    const ImgList = [
-      'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-light-theme-img.png',
+    // const ImgList = [
+    //   'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-light-theme-img.png',
 
-      'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-dark-theme-img.png',
-    ]
+    //   'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-dark-theme-img.png',
+    // ]
     const jwt = Cookies.get('jwt_token')
     if (jwt === undefined) {
       return <Redirect to="/login" />
@@ -133,72 +132,18 @@ class Home extends Component {
     return (
       <ToggleTheme.Consumer>
         {value => {
-          const {isDarkTheme, ChangeTheme} = value
-          if (!HideVideoList) {
-            return (
-              <HomeContainer>
-                <Header ChangeTheme={ChangeTheme} />
-                <BottomContainer>
-                  <SideNav />
-                  <HomeVideoContainer
-                    NfToggle={HideVideoList}
-                    toggle={isDarkTheme}
-                  >
-                    <BannerContainer
-                      data-testid="banner"
-                      CancelBanner={showBanner}
-                    >
-                      <ContentContainer>
-                        <LogoImg src={LogoList[0]} alt="website logo" />
-                        <AdvertLine>
-                          Buy NXT Watch Premium prepaid plans with UPI
-                        </AdvertLine>
-                        <GetBtn>GET IT NOW</GetBtn>
-                      </ContentContainer>
-                      <CancelBtn>
-                        <BsX onClick={this.CancelBanner} />
-                      </CancelBtn>
-                    </BannerContainer>
-                    <SearchContainer>
-                      <SearchBar
-                        type="search"
-                        value={searchInput}
-                        onChange={this.ChangeSearch}
-                      />
-                      <SearchBtn
-                        data-testid="searchButton"
-                        onClick={this.MakeSearch}
-                      >
-                        <BsSearch style={{color: '#7e858e'}} />
-                      </SearchBtn>
-                    </SearchContainer>
+          const {isDarkTheme} = value
 
-                    {isLoading ? <LoaderComponent /> : null}
-                    {fetchFailed && <FetchError fail={this.getVideos} />}
-                    {EmptyList ? (
-                      this.NoSearchResults(isDarkTheme)
-                    ) : (
-                      <EachVideoContainer>
-                        {VideosList.map(each => (
-                          <VideoCard itemDetails={each} key={each.id} />
-                        ))}
-                      </EachVideoContainer>
-                    )}
-                  </HomeVideoContainer>
-                </BottomContainer>
-              </HomeContainer>
-            )
-          }
           return (
-            <HomeContainer data-testid="home">
-              <Header ChangeTheme={ChangeTheme} />
+            <HomeContainer toggle={isDarkTheme} data-testid="home">
+              {/* <Header ChangeTheme={ChangeTheme} /> */}
               <BottomContainer>
-                <SideNav />
-                <HomeVideoContainer
-                  NfToggle={HideVideoList}
-                  toggle={isDarkTheme}
-                >
-                  <BannerContainer CancelBanner={showBanner}>
+                {/* <SideNav /> */}
+                <HomeVideoContainer toggle={isDarkTheme}>
+                  <BannerContainer
+                    data-testid="banner"
+                    CancelBanner={showBanner}
+                  >
                     <ContentContainer>
                       <LogoImg src={LogoList[0]} alt="nxt watch logo" />
                       <AdvertLine>
@@ -206,22 +151,35 @@ class Home extends Component {
                       </AdvertLine>
                       <GetBtn>GET IT NOW</GetBtn>
                     </ContentContainer>
-                    <CancelBtn data-testid="close" onClick={this.CancelBanner}>
-                      <BsX />
+                    <CancelBtn data-testid="close">
+                      <BsX onClick={this.CancelBanner} />
                     </CancelBtn>
                   </BannerContainer>
-                  <NFcontainer toggle={isDarkTheme}>
-                    <LogoImg
-                      maiHuNotFound
-                      src={isDarkTheme ? ImgList[1] : ImgList[0]}
-                      alt="not found"
+                  <SearchContainer>
+                    <SearchBar
+                      type="search"
+                      value={searchInput}
+                      onChange={this.ChangeSearch}
                     />
-                    <NFheading toggle={isDarkTheme}>Page Not Found</NFheading>
-                    <NFpara toggle={isDarkTheme}>
-                      We are sorry,the page you requested could not be found.
-                    </NFpara>
-                  </NFcontainer>
+                    <SearchBtn
+                      data-testid="searchButton"
+                      onClick={this.MakeSearch}
+                    >
+                      <BsSearch style={{color: '#7e858e'}} />
+                    </SearchBtn>
+                  </SearchContainer>
+
                   {isLoading ? <LoaderComponent /> : null}
+                  {fetchFailed && <FetchError fail={this.getVideos} />}
+                  {EmptyList ? (
+                    this.NoSearchResults(isDarkTheme)
+                  ) : (
+                    <EachVideoContainer>
+                      {VideosList.map(each => (
+                        <VideoCard itemDetails={each} key={each.id} />
+                      ))}
+                    </EachVideoContainer>
+                  )}
                 </HomeVideoContainer>
               </BottomContainer>
             </HomeContainer>

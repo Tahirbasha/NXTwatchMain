@@ -11,6 +11,8 @@ export const NFcontainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${props => (props.toggle ? '#212121' : '#ffffff')};
+  width: 85vw;
+  height: 150vh;
 `
 export const NFheading = styled.h1`
   color: ${props => (props.toggle ? '#ffffff' : '#212121')};

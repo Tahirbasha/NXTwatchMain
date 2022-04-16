@@ -1,4 +1,4 @@
-import {formatDistanceToNow} from 'date-fns'
+// import {formatDistanceToNow} from 'date-fns'
 import {Link, withRouter} from 'react-router-dom'
 import ToggleTheme from '../../context/ToggleTheme'
 
@@ -29,10 +29,9 @@ const VideoCard = props => {
     <ToggleTheme.Consumer>
       {value => {
         const {isDarkTheme} = value
-        const Time = formatDistanceToNow(new Date(publishedTime))
+
         return (
           <VideoContainer>
-            {' '}
             <Link to={`/videos/${id}`}>
               <LogoImg src={thumbnailUrl} alt="video thumbnail" />
               <ChannelTitle>
@@ -44,7 +43,9 @@ const VideoCard = props => {
                     <ViewsCount toggle={isDarkTheme}>
                       {viewCount} views
                     </ViewsCount>
-                    <PublishTime toggle={isDarkTheme}>{Time}</PublishTime>
+                    <PublishTime toggle={isDarkTheme}>
+                      {publishedTime}
+                    </PublishTime>
                   </ViewTime>
                 </TheoryContainer>
               </ChannelTitle>
