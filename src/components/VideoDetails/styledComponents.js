@@ -39,9 +39,7 @@ export const BtnContainer = styled.div`
   align-items: center;
   width: 120px;
 `
-export const Like = styled.p`
-  margin-right: 10px;
-`
+export const LogoImg = styled.img.attrs(props => ({src: props.src}))``
 
 export const LikeContainer = styled.div`
   //   display: flex;

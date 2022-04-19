@@ -6,13 +6,14 @@ export const HomeContainer = styled.div`
 
 export const BottomContainer = styled.div`
   display: flex;
-  width: 100vw; ;
+  width: 85vw;
 `
 export const HomeVideoContainer = styled.div`
   background-color: ${props => (props.toggle ? '#181818' : '#f9f9f9')};
-  width: 85vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `
 
 export const BannerContainer = styled.div`
@@ -22,7 +23,7 @@ export const BannerContainer = styled.div`
   justify-content: space-between;
   padding: 20px;
   height: 40vh;
-  width: 80vw;
+  width: 100%;
 `
 
 export const ContentContainer = styled.div`
@@ -52,12 +53,7 @@ export const CancelBtn = styled.button`
   border: 0px;
   align-self: flex-start;
 `
-export const NFcontainer = styled.div`
-  text-align: center;
-  margin-top: 18px;
-  align-self: center;
-  background-color: ${props => (props.toggle ? '#212121' : '#f4f4f4')};
-`
+
 export const NFheading = styled.h1`
   color: ${props => (props.toggle ? '#ffffff' : '#212121')};
   font-size: 28px;

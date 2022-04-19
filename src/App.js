@@ -50,12 +50,14 @@ class App extends Component {
             <div className="Bottom_container">
               <SideNav />
               <>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/trending" component={Trending} />
-                <Route exact path="/gaming" component={Gaming} />
-                <Route exact path="/saved-videos" component={SavedVideos} />
-                <Route exact path="/videos/:id" component={VideoDetails} />
-                <Route component={NotFound} />
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/trending" component={Trending} />
+                  <Route exact path="/gaming" component={Gaming} />
+                  <Route exact path="/saved-videos" component={SavedVideos} />
+                  <Route exact path="/videos/:id" component={VideoDetails} />
+                  <Route component={NotFound} />
+                </Switch>
               </>
             </div>
           </>

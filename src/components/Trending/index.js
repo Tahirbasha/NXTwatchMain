@@ -79,7 +79,6 @@ class Trending extends Component {
               <BottomContainer>
                 <HomeVideoContainer toggle={isDarkTheme}>
                   {fetchFailed && <FetchError fail={this.getVideos} />}
-                  {isLoading ? <LoaderComponent /> : null}
                   {!fetchFailed && (
                     <>
                       <HeaderContainer toggle={isDarkTheme}>
@@ -90,6 +89,7 @@ class Trending extends Component {
                         </IconContainer>
                         <Heading toggle={isDarkTheme}>Trending</Heading>
                       </HeaderContainer>
+                      {isLoading ? <LoaderComponent /> : null}
                       <EachVideoContainer>
                         {VideosList.map(each => (
                           <VideoCard itemDetails={each} key={each.id} />

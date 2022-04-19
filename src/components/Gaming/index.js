@@ -4,9 +4,9 @@ import {Redirect, Link} from 'react-router-dom'
 import {RiGamepadFill} from 'react-icons/ri'
 
 import ToggleTheme from '../../context/ToggleTheme'
-
-import LoaderComponent from '../Loader'
 import FetchError from '../FailureView'
+import LoaderComponent from '../Loader'
+// import FetchError from '../FailureView'
 
 import {
   HomeContainer,

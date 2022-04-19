@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SideContainer = styled.div`
+export const SideContainer = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,7 +11,7 @@ export const SideContainer = styled.div`
   background-color: ${props => (props.toggle ? '#181818' : '#ffffff')};
 `
 
-export const ListItem = styled.div`
+export const ListItem = styled.li`
   display: flex;
   align-items: center;
   width: 100%;

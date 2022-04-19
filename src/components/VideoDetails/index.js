@@ -19,7 +19,7 @@ import {
   ViewandBtnContainer,
   ViewContainer,
   BtnContainer,
-  Like,
+  LogoImg,
   LikeContainer,
   PNSContainer,
   NSContainer,
@@ -143,6 +143,7 @@ class VideoDetails extends Component {
                   <Heading toggle={isDarkTheme}>{title}</Heading>
                   <ViewandBtnContainer>
                     <ViewContainer toggle={isDarkTheme}>
+                      <LogoImg src={profileImg} alt="channel logo" />
                       <Heading
                         para
                         toggle={isDarkTheme}
@@ -163,7 +164,7 @@ class VideoDetails extends Component {
                           }}
                         >
                           <AiOutlineLike />
-                          <Like>Like</Like>
+                          Like
                         </LikeBtn>
                       </LikeContainer>
 
@@ -175,7 +176,7 @@ class VideoDetails extends Component {
                           }}
                         >
                           <AiOutlineDislike />
-                          <Like>Dislike</Like>
+                          Dislike
                         </LikeBtn>
                       </LikeContainer>
                       <LikeContainer toggle={isDarkTheme}>
@@ -186,7 +187,7 @@ class VideoDetails extends Component {
                           }}
                         >
                           <BiListPlus />
-                          <Like>{isExist ? 'Saved' : 'Save'}</Like>
+                          {isExist ? 'Saved' : 'Save'}
                         </LikeBtn>
                       </LikeContainer>
                     </BtnContainer>

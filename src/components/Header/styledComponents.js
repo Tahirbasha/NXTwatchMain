@@ -12,7 +12,7 @@ export const HeaderContainer = styled.nav`
   justify-content: space-between;
   padding: 12px;
 `
-export const SettingContainer = styled.button`
+export const SettingContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;

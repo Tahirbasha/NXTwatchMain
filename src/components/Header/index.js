@@ -65,6 +65,7 @@ const Header = props => {
                 height="40px"
                 width="40px"
               />
+
               <Popup
                 modal
                 trigger={

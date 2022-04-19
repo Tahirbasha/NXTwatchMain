@@ -4,8 +4,6 @@ import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
 
 import ToggleTheme from '../../context/ToggleTheme'
-// import Header from '../Header'
-// import SideNav from '../SideNav'
 import LoaderComponent from '../Loader'
 import VideoCard from '../VideoCard'
 import FetchError from '../FailureView'
@@ -20,7 +18,6 @@ import {
   LogoImg,
   AdvertLine,
   CancelBtn,
-  //   NFcontainer,
   NFheading,
   NFpara,
   SearchContainer,
@@ -136,9 +133,7 @@ class Home extends Component {
 
           return (
             <HomeContainer toggle={isDarkTheme} data-testid="home">
-              {/* <Header ChangeTheme={ChangeTheme} /> */}
               <BottomContainer>
-                {/* <SideNav /> */}
                 <HomeVideoContainer toggle={isDarkTheme}>
                   <BannerContainer
                     data-testid="banner"
