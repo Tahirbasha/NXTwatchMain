@@ -143,7 +143,6 @@ class VideoDetails extends Component {
                   <Heading toggle={isDarkTheme}>{title}</Heading>
                   <ViewandBtnContainer>
                     <ViewContainer toggle={isDarkTheme}>
-                      <LogoImg src={profileImg} alt="channel logo" />
                       <Heading
                         para
                         toggle={isDarkTheme}
@@ -159,9 +158,7 @@ class VideoDetails extends Component {
                       <LikeContainer toggle={isDarkTheme}>
                         <LikeBtn
                           onClick={this.onLikeClick}
-                          style={{
-                            color: positiveLiked ? '#2563eb ' : '#64748b',
-                          }}
+                          liked={positiveLiked}
                         >
                           <AiOutlineLike />
                           Like
@@ -171,9 +168,7 @@ class VideoDetails extends Component {
                       <LikeContainer toggle={isDarkTheme}>
                         <LikeBtn
                           onClick={this.onDislikeClick}
-                          style={{
-                            color: negitiveLiked ? '#2563eb ' : '#64748b',
-                          }}
+                          liked={negitiveLiked}
                         >
                           <AiOutlineDislike />
                           Dislike
@@ -199,7 +194,7 @@ class VideoDetails extends Component {
                     }}
                   />
                   <PNSContainer toggle={isDarkTheme}>
-                    <img
+                    <LogoImg
                       src={profileImg}
                       alt="channel logo"
                       height="40px"

@@ -83,7 +83,7 @@ export const Title = styled.p`
   color: ${props => (props.toggle ? '#d7dfe9' : '#212121')};
   font-size: 22px;
   font-weight: 500;
-  font-family: Roboto;
+  font-family: roboto;
 `
 
 export const TheoryContainer = styled.div`

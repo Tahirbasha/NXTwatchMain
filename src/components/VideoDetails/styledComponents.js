@@ -66,5 +66,5 @@ export const LikeBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: ${props => (props.toggle ? '#f4f4f4' : ' #475569')};
+  color: ${props => (props.liked ? '#2563eb ' : '#64748b')};
 `
