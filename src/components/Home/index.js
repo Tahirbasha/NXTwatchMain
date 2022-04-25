@@ -35,6 +35,7 @@ class Home extends Component {
     isLoading: false,
     VideosList: [],
     fetchFailed: false,
+    EmptyList: false,
   }
 
   componentDidMount() {
@@ -54,8 +55,13 @@ class Home extends Component {
         `https://apis.ccbp.in/videos/all?search=${searchInput}`,
         options,
       )
-      const data = await response.json()
 
+      const data = await response.json()
+      if (data.videos.length === 0) {
+        this.setState({EmptyList: true})
+      } else {
+        this.setState({EmptyList: false})
+      }
       if (response.ok) {
         const UpdatedData = data.videos.map(each => ({
           id: each.id,
@@ -108,8 +114,8 @@ class Home extends Component {
       isLoading,
       VideosList,
       fetchFailed,
+      EmptyList,
     } = this.state
-    const EmptyList = VideosList.length === 0 && !fetchFailed
 
     const LogoList = [
       'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png',
@@ -155,6 +161,7 @@ class Home extends Component {
                       type="search"
                       value={searchInput}
                       onChange={this.ChangeSearch}
+                      toggle={isDarkTheme}
                     />
                     <SearchBtn
                       data-testid="searchButton"

@@ -32,7 +32,7 @@ export const EachVideoContainer = styled.ul`
 `
 
 export const HeaderContainer = styled.div`
-  background-color: ${props => (props.toggle ? '#212121' : '##cccccc')};
+  background-color: ${props => (props.toggle ? '#212121' : '#ebebeb')};
   display: flex;
   align-items: center;
   padding: 40px;

@@ -3,13 +3,15 @@ import styled from 'styled-components'
 export const VideoContainer = styled.li`
   list-style-type: none;
   width: 28%;
-  margin-left: 20px;
+  margin: 20px;
 `
 
 export const LogoImg = styled.img.attrs(props => ({
   src: props.src,
 }))`
-  height: ${props => (props.ImProfilePic ? '40px' : '200px')};
+  height: ${props => (props.ImProfilePic ? '40px' : '170px')};
+  width: ${props => (props.ImProfilePic ? null : '300px')};
+  margin-top: ${props => (props.ImProfilePic ? '18px' : null)};
 `
 export const ChannelTitle = styled.div`
   display: flex;

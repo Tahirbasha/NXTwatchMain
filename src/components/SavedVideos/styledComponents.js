@@ -6,7 +6,7 @@ export const HomeContainer = styled.div`
 
 export const BottomContainer = styled.div`
   display: flex;
-  width: 100vw;
+  width: 85vw;
   height: 150vh;
 `
 export const HomeVideoContainer = styled.div`

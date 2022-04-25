@@ -79,18 +79,16 @@ class Gaming extends Component {
             <HomeContainer toggle={isDarkTheme} data-testid="gaming">
               <BottomContainer>
                 <HomeVideoContainer toggle={isDarkTheme}>
+                  <HeaderContainer toggle={isDarkTheme}>
+                    <IconContainer toggle={isDarkTheme}>
+                      <RiGamepadFill style={{color: 'red', fontSize: '30px'}} />
+                    </IconContainer>
+                    <Heading toggle={isDarkTheme}>Gaming</Heading>
+                  </HeaderContainer>
                   {isLoading ? <LoaderComponent /> : null}
                   {fetchFailed && <FetchError fail={this.getVideos} />}
                   {!fetchFailed && (
                     <>
-                      <HeaderContainer toggle={isDarkTheme}>
-                        <IconContainer toggle={isDarkTheme}>
-                          <RiGamepadFill
-                            style={{color: 'red', fontSize: '30px'}}
-                          />
-                        </IconContainer>
-                        <Heading toggle={isDarkTheme}>Gaming</Heading>
-                      </HeaderContainer>
                       <EachVideoContainer>
                         {VideosList.map(each => {
                           console.log(each)
@@ -98,7 +96,10 @@ class Gaming extends Component {
                           const {id, thumbnailUrl, title, viewCount} = each
                           return (
                             <VideoContainer key={id}>
-                              <Link to={`/videos/${id}`}>
+                              <Link
+                                to={`/videos/${id}`}
+                                style={{textDecoration: 'none'}}
+                              >
                                 <LogoImg
                                   src={thumbnailUrl}
                                   alt="video thumbnail"

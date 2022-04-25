@@ -45,7 +45,7 @@ class App extends Component {
       >
         <Switch>
           <Route exact path="/login" component={LoginForm} />
-          <>
+          <div className="Main_container">
             <Header ChangeTheme={this.onChangeTheme} />
             <div className="Bottom_container">
               <SideNav />
@@ -60,7 +60,7 @@ class App extends Component {
                 </Switch>
               </>
             </div>
-          </>
+          </div>
         </Switch>
       </ToggleTheme.Provider>
     )

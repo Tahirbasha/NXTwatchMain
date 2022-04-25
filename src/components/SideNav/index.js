@@ -11,6 +11,7 @@ import {
   FooterContainer,
   ContactPara,
   SocialLogos,
+  navList,
 } from './styledComponents'
 
 const SideNav = () => (
@@ -19,11 +20,11 @@ const SideNav = () => (
       const {isDarkTheme} = value
       return (
         <SideContainer toggle={isDarkTheme}>
-          <ul>
+          <navList>
             <ListItem toggle={isDarkTheme}>
               <AiFillHome />
               <ItemPara>
-                <Link to="/" style={{textDecoration: 'none'}}>
+                <Link to="/" style={{textDecoration: 'none', color: '#475569'}}>
                   Home
                 </Link>
               </ItemPara>
@@ -31,7 +32,10 @@ const SideNav = () => (
             <ListItem toggle={isDarkTheme}>
               <AiFillFire />
               <ItemPara>
-                <Link to="/trending" style={{textDecoration: 'none'}}>
+                <Link
+                  to="/trending"
+                  style={{textDecoration: 'none', color: '#475569'}}
+                >
                   Trending
                 </Link>
               </ItemPara>
@@ -39,7 +43,10 @@ const SideNav = () => (
             <ListItem toggle={isDarkTheme}>
               <RiGamepadFill />
               <ItemPara>
-                <Link to="/gaming" style={{textDecoration: 'none'}}>
+                <Link
+                  to="/gaming"
+                  style={{textDecoration: 'none', color: '#475569'}}
+                >
                   Gaming
                 </Link>
               </ItemPara>
@@ -47,12 +54,15 @@ const SideNav = () => (
             <ListItem toggle={isDarkTheme}>
               <RiPlayListAddFill />
               <ItemPara>
-                <Link to="/saved-videos" style={{textDecoration: 'none'}}>
+                <Link
+                  to="/saved-videos"
+                  style={{textDecoration: 'none', color: '#475569'}}
+                >
                   Saved videos
                 </Link>
               </ItemPara>
             </ListItem>
-          </ul>
+          </navList>
 
           <FooterContainer>
             <ContactPara>CONTACT US</ContactPara>

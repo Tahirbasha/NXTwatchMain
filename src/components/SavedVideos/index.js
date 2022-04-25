@@ -93,7 +93,10 @@ class SavedVideos extends Component {
                         } = each
                         return (
                           <VideoContainer>
-                            <Link to={`/videos/${id}`}>
+                            <Link
+                              to={`/videos/${id}`}
+                              style={{textDecoration: 'none'}}
+                            >
                               <LogoImg
                                 src={thumbnailUrl}
                                 alt="video thumbnail"

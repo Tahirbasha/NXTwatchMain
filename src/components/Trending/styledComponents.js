@@ -6,12 +6,12 @@ export const HomeContainer = styled.nav`
 `
 export const BottomContainer = styled.div`
   display: flex;
-  width: 100%;
+  //   width: 82%;
 `
 export const HomeVideoContainer = styled.div`
   background-color: ${props => (props.toggle ? '#0f0f0f' : '#f9f9f9')};
   width: 100%;
-
+  //   border: 2px solid yellow;
   display: flex;
   flex-direction: column;
 `
@@ -29,6 +29,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 40px;
+  width: 100%;
 `
 
 export const IconContainer = styled.div`

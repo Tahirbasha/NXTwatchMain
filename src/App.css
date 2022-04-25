@@ -15,3 +15,7 @@ body {
   display: flex;
   width: 100vw;
 }
+
+.Main_container {
+  overflow-x: hidden;
+}

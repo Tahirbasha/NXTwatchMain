@@ -7,6 +7,7 @@ export const HomeContainer = styled.div`
 export const BottomContainer = styled.div`
   display: flex;
   width: 100vw;
+  height: 150vh;
 `
 export const HomeVideoContainer = styled.div`
   background-color: ${props => (props.toggle ? '#212121' : '#f4f4f4')};

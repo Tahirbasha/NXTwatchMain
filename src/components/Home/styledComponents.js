@@ -68,21 +68,28 @@ export const SearchContainer = styled.div`
   padding: 10px;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 500px;
   background-color: '#cccccc';
-  margin-left: 25px;
+  margin-left: 50px;
+  align-self: flex-start;
 `
 
 export const SearchBar = styled.input`
   padding: 5px;
   outline: none;
+  width: 100%;
+
+  border: 1px solid #000000;
+  color: ${props => (props.toggle ? '#ffffff' : '#000000')};
+  background-color: ${props => (props.toggle ? '#475569' : '#ffffff')};
 `
+
 export const EachVideoContainer = styled.ul`
   display: flex;
-  justify-content: space-around;
+  //   justify-content: space-around;
   flex-wrap: wrap;
-  overflow: auto;
-  height: 650px;
+  overflow-y: auto;
+  height: 630px;
 `
 export const OopsContainer = styled.div`
   text-align: center;

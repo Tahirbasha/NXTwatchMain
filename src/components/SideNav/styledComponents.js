@@ -8,13 +8,14 @@ export const SideContainer = styled.nav`
   width: 18%;
   height: 150vh;
   list-style-type: none;
-  background-color: ${props => (props.toggle ? '#181818' : '#ffffff')};
+  background-color: ${props => (props.toggle ? '#0f0f0f' : '#ffffff')};
 `
 
 export const ListItem = styled.li`
   display: flex;
   align-items: center;
   width: 100%;
+  padding-left: 15px;
   color: '#94a3b8';
   :hover {
     color: red;
@@ -25,7 +26,7 @@ export const ListItem = styled.li`
 export const ItemPara = styled.p`
   color: #475569;
   font-family: roboto;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
   margin-left: 10px;
 `
@@ -37,12 +38,15 @@ export const FooterContainer = styled.div`
 
 export const ContactPara = styled.p`
   color: #909090;
-  font-size: 23px;
+  font-size: 19px;
   font-family: Roboto;
   font-weight: 500;
 `
 export const SocialLogos = styled.div`
   display: flex;
+  //   height: 10px;
+  //   width: 10px;
   justify-content: space-between;
   margin-right: 10px;
 `
+export const navList = styled.ul``
