@@ -67,13 +67,13 @@ const Header = props => {
               />
 
               <Popup
+                style={{borderWidth: '0px'}}
                 modal
                 trigger={
                   <LogOutBtn type="button" toggle={isDarkTheme}>
                     Logout
                   </LogOutBtn>
                 }
-                border="0px"
               >
                 {close => (
                   <PopUpContainer toggle={isDarkTheme}>

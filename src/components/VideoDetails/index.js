@@ -105,6 +105,7 @@ class VideoDetails extends Component {
     } = this.state
     // console.log(VideosList)
     const {
+      id,
       name,
       profileImg,
       subscriberCount,
@@ -176,6 +177,7 @@ class VideoDetails extends Component {
                       </LikeContainer>
                       <LikeContainer toggle={isDarkTheme}>
                         <LikeBtn
+                          value={id}
                           onClick={toggleSaved}
                           style={{
                             color: isExist ? '#2563eb ' : '#64748b',

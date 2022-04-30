@@ -8,6 +8,7 @@ export const SideContainer = styled.nav`
   width: 18%;
   height: 150vh;
   list-style-type: none;
+
   background-color: ${props => (props.toggle ? '#0f0f0f' : '#ffffff')};
 `
 

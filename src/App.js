@@ -18,7 +18,11 @@ class App extends Component {
 
   addingVideos = Data => {
     const {saved} = this.state
-    this.setState({saved: [...saved, Data]})
+    const Exist = saved.every(each => each.id !== Data.id)
+    if (Exist) {
+      console.log(Data)
+      this.setState({saved: [...saved, Data]})
+    }
   }
 
   removeVideos = Data => {

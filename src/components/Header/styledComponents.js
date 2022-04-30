@@ -34,7 +34,7 @@ export const PopUpContainer = styled.div`
   justify-content: center;
   height: 38vh;
   border-radius: 5px;
-  border: none;
+
   background-color: ${props => (props.toggle ? '#0f0f0f' : ' #ffffff')};
 `
 export const confirmSentence = styled.p`
