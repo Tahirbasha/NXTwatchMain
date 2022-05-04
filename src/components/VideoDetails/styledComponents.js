@@ -31,7 +31,8 @@ export const Heading = styled.p`
   font-size: ${props => (props.para ? '15px' : '25px')};
   font-weight: 500;
   @media (max-width: 576px) {
-    font-size: ${props => (props.para ? '12px' : '20px')};
+    font-size: ${props => (props.para ? '12px' : '16px')};
+    width: ${props => (props.titleHead ? '90%' : null)};
   }
 `
 export const ViewandBtnContainer = styled.div`

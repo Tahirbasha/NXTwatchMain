@@ -147,11 +147,13 @@ class VideoDetails extends Component {
                         url={Url}
                         controls
                         className="react_player"
-                        width="80%"
-                        height="70vh"
+                        width="90%"
+                        height="100%"
                       />
 
-                      <Heading toggle={isDarkTheme}>{title}</Heading>
+                      <Heading titleHead toggle={isDarkTheme}>
+                        {title}
+                      </Heading>
                       <ViewandBtnContainer>
                         <ViewContainer toggle={isDarkTheme}>
                           <Heading
