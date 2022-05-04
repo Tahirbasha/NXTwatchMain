@@ -1,3 +1,4 @@
+import './index.css'
 import {RiMoonFill, RiSunLine} from 'react-icons/ri'
 import Popup from 'reactjs-popup'
 
@@ -67,7 +68,6 @@ const Header = props => {
               />
 
               <Popup
-                style={{borderWidth: '0px'}}
                 modal
                 trigger={
                   <LogOutBtn type="button" toggle={isDarkTheme}>
@@ -78,10 +78,9 @@ const Header = props => {
                 {close => (
                   <PopUpContainer toggle={isDarkTheme}>
                     <p
+                      className="notice_para"
                       style={{
                         color: isDarkTheme ? '#ffffff' : '#000000',
-                        fontWeight: '500',
-                        fontSize: '22px',
                       }}
                     >
                       Are you sure, you want to logout

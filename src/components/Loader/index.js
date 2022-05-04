@@ -7,7 +7,7 @@ const LoaderComponent = () => (
   <ToggleTheme.Consumer>
     {value => {
       const {isDarkTheme} = value
-      const LoaderColor = isDarkTheme ? '#ffffff' : '#000000'
+      const LoaderColor = isDarkTheme ? '#ffffff' : ' #3b82f6'
       return (
         <LoaderEl data-testid="loader">
           <Loader type="ThreeDots" color={LoaderColor} height="50" width="50" />

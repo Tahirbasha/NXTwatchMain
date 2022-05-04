@@ -3,6 +3,10 @@ import styled from 'styled-components'
 export const HomeContainer = styled.div`
   background-color: ${props => (props.toggle ? '#0f0f0f' : '#f9f9f9')};
 `
+export const playerContainer = styled.div`
+  width: 100vw;
+  border: 5px solid yellow;
+`
 
 export const BottomContainer = styled.div`
   display: flex;
@@ -12,16 +16,23 @@ export const BottomContainer = styled.div`
 export const HomeVideoContainer = styled.div`
   background-color: ${props => (props.toggle ? '#212121' : '#f4f4f4')};
   width: 85vw;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 18px;
+  @media (max-width: 576px) {
+    width: 100vw;
+  }
 `
 export const Heading = styled.p`
   color: ${props => (props.toggle ? '#f4f4f4' : '#212121')};
   font-family: roboto;
   font-size: ${props => (props.para ? '15px' : '25px')};
   font-weight: 500;
+  @media (max-width: 576px) {
+    font-size: ${props => (props.para ? '12px' : '20px')};
+  }
 `
 export const ViewandBtnContainer = styled.div`
   display: flex;

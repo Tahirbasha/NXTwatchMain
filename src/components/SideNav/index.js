@@ -1,3 +1,4 @@
+import './index.css'
 import {Link, withRouter} from 'react-router-dom'
 
 import {AiFillHome, AiFillFire} from 'react-icons/ai'
@@ -11,7 +12,6 @@ import {
   FooterContainer,
   ContactPara,
   SocialLogos,
-  navList,
 } from './styledComponents'
 
 const SideNav = () => (
@@ -20,7 +20,7 @@ const SideNav = () => (
       const {isDarkTheme} = value
       return (
         <SideContainer toggle={isDarkTheme}>
-          <navList>
+          <div className="Nav_list">
             <ListItem toggle={isDarkTheme}>
               <AiFillHome />
               <ItemPara>
@@ -62,7 +62,7 @@ const SideNav = () => (
                 </Link>
               </ItemPara>
             </ListItem>
-          </navList>
+          </div>
 
           <FooterContainer>
             <ContactPara>CONTACT US</ContactPara>
@@ -70,20 +70,19 @@ const SideNav = () => (
               <img
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
                 alt="facebook logo"
-                height="50px"
-                width="50px"
+                className="logimg"
               />
+
               <img
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
                 alt="twitter logo"
-                height="50px"
-                width="50px"
+                className="logimg"
               />
+
               <img
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
                 alt="linked in logo"
-                height="50px"
-                width="50px"
+                className="logimg"
               />
             </SocialLogos>
             <ContactPara>

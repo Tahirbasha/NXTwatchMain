@@ -85,7 +85,7 @@ class Home extends Component {
       <LogoImg
         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
         alt="no videos"
-        style={{height: '400px'}}
+        maiHuNotFound
       />
       <NFheading toggle={isDarkTheme}>No Search results found</NFheading>
       <NFpara toggle={isDarkTheme}>

@@ -16,6 +16,11 @@ body {
   display: flex;
   width: 100vw;
 }
+@media (max-width: 576px) {
+  .Bottom_container {
+    flex-direction: column;
+  }
+}
 
 .Main_container {
   overflow-x: hidden;

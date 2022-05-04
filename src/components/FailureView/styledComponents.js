@@ -27,4 +27,7 @@ export const LogoImg = styled.img.attrs(props => ({
 }))`
   height: 370px;
   align-self: flex-start;
+  @media (max-width: 576px) {
+    height: 230px;
+  }
 `

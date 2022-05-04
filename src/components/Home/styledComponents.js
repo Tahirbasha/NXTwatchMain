@@ -7,6 +7,9 @@ export const HomeContainer = styled.div`
 export const BottomContainer = styled.div`
   display: flex;
   width: 85vw;
+  @media (max-width: 576px) {
+    width: 100%;
+  }
 `
 export const HomeVideoContainer = styled.div`
   background-color: ${props => (props.toggle ? '#181818' : '#f9f9f9')};
@@ -14,6 +17,10 @@ export const HomeVideoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  height: 150vh;
+  @media (max-width: 576px) {
+  }
 `
 
 export const BannerContainer = styled.div`
@@ -24,29 +31,48 @@ export const BannerContainer = styled.div`
   padding: 20px;
   height: 40vh;
   width: 100%;
+  @media (max-width: 576px) {
+    height: 20vh;
+    width: 100%;
+    padding: none;
+  }
 `
 
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
+  padding-bottom: 12px;
 `
 
 export const GetBtn = styled.button`
   align-self: flex-start;
   background-color: transparent;
   padding: 12px;
+  @media (max-width: 576px) {
+    width: 30%;
+
+    font-size: 8px;
+    padding: 6px;
+  }
 `
 
 export const LogoImg = styled.img.attrs(props => ({
   src: props.src,
 }))`
-  height: ${props => (props.maiHuNotFound ? '480px' : '40px')};
+  height: ${props => (props.maiHuNotFound ? '480px' : '22px')};
   align-self: flex-start;
+  @media (max-width: 576px) {
+    height: ${props => (props.maiHuNotFound ? '200px' : '22px')};
+  }
 `
 
 export const AdvertLine = styled.p`
   font-size: 28px;
   width: 75%;
+  @media (max-width: 576px) {
+    width: 40%;
+    font-size: 10px;
+  }
 `
 export const CancelBtn = styled.button`
   background-color: transparent;
@@ -72,6 +98,9 @@ export const SearchContainer = styled.div`
   background-color: '#cccccc';
   margin-left: 50px;
   align-self: flex-start;
+  @media (max-width: 576px) {
+    width: 77%;
+  }
 `
 
 export const SearchBar = styled.input`
@@ -84,12 +113,15 @@ export const SearchBar = styled.input`
   background-color: ${props => (props.toggle ? '#475569' : '#ffffff')};
 `
 
-export const EachVideoContainer = styled.ul`
+export const EachVideoContainer = styled.div`
   display: flex;
-  //   justify-content: space-around;
+  justify-content: space-around;
   flex-wrap: wrap;
-  overflow-y: auto;
-  height: 630px;
+  overflow-y: scroll;
+
+  @media (max-width: 576px) {
+    justify-content: flex-start;
+  }
 `
 export const OopsContainer = styled.div`
   text-align: center;

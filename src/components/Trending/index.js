@@ -17,6 +17,7 @@ import {
   HeaderContainer,
   IconContainer,
   Heading,
+  ContentContainer,
 } from './styledComponents'
 
 class Trending extends Component {
@@ -80,7 +81,7 @@ class Trending extends Component {
                 <HomeVideoContainer toggle={isDarkTheme}>
                   {fetchFailed && <FetchError fail={this.getVideos} />}
                   {!fetchFailed && (
-                    <>
+                    <ContentContainer>
                       <HeaderContainer toggle={isDarkTheme}>
                         <IconContainer toggle={isDarkTheme}>
                           <AiFillFire
@@ -95,7 +96,7 @@ class Trending extends Component {
                           <VideoCard itemDetails={each} key={each.id} />
                         ))}
                       </EachVideoContainer>
-                    </>
+                    </ContentContainer>
                   )}
                 </HomeVideoContainer>
               </BottomContainer>

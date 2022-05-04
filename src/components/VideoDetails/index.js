@@ -1,3 +1,4 @@
+import './index.css'
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
@@ -140,86 +141,97 @@ class VideoDetails extends Component {
                 <HomeVideoContainer toggle={isDarkTheme}>
                   {isLoading ? <LoaderComponent /> : null}
                   {fetchFailed && <FetchError fail={this.getVideos} />}
-                  <ReactPlayer url={Url} controls style={{width: '85%'}} />
-                  <Heading toggle={isDarkTheme}>{title}</Heading>
-                  <ViewandBtnContainer>
-                    <ViewContainer toggle={isDarkTheme}>
+                  {!fetchFailed && (
+                    <div className="player_container">
+                      <ReactPlayer
+                        url={Url}
+                        controls
+                        className="react_player"
+                        width="80%"
+                        height="70vh"
+                      />
+
+                      <Heading toggle={isDarkTheme}>{title}</Heading>
+                      <ViewandBtnContainer>
+                        <ViewContainer toggle={isDarkTheme}>
+                          <Heading
+                            para
+                            toggle={isDarkTheme}
+                            style={{marginRight: '8px'}}
+                          >
+                            {viewCount}
+                          </Heading>
+                          <Heading para toggle={isDarkTheme}>
+                            {publishedTime}
+                          </Heading>
+                        </ViewContainer>
+                        <BtnContainer toggle={isDarkTheme}>
+                          <LikeContainer toggle={isDarkTheme}>
+                            <LikeBtn
+                              onClick={this.onLikeClick}
+                              liked={positiveLiked}
+                            >
+                              <AiOutlineLike />
+                              Like
+                            </LikeBtn>
+                          </LikeContainer>
+
+                          <LikeContainer toggle={isDarkTheme}>
+                            <LikeBtn
+                              onClick={this.onDislikeClick}
+                              liked={negitiveLiked}
+                            >
+                              <AiOutlineDislike />
+                              Dislike
+                            </LikeBtn>
+                          </LikeContainer>
+                          <LikeContainer toggle={isDarkTheme}>
+                            <LikeBtn
+                              value={id}
+                              onClick={toggleSaved}
+                              style={{
+                                color: isExist ? '#2563eb ' : '#64748b',
+                              }}
+                            >
+                              <BiListPlus />
+                              {isExist ? 'Saved' : 'Save'}
+                            </LikeBtn>
+                          </LikeContainer>
+                        </BtnContainer>
+                      </ViewandBtnContainer>
+                      <hr
+                        style={{
+                          width: '95%',
+                          color: isDarkTheme ? '#cbd5e1' : '#000000',
+                        }}
+                      />
+                      <PNSContainer toggle={isDarkTheme}>
+                        <LogoImg
+                          src={profileImg}
+                          alt="channel logo"
+                          height="40px"
+                          width="40px"
+                        />
+                        <NSContainer>
+                          <Heading para toggle={isDarkTheme}>
+                            {name}
+                          </Heading>
+                          <Heading para toggle={isDarkTheme}>
+                            {subscriberCount} subscribers
+                          </Heading>
+                        </NSContainer>
+                      </PNSContainer>
                       <Heading
                         para
-                        toggle={isDarkTheme}
-                        style={{marginRight: '8px'}}
+                        style={{
+                          width: '85%',
+                          color: isDarkTheme ? '#cbd5e1' : '#000000',
+                        }}
                       >
-                        {viewCount}
+                        {description}
                       </Heading>
-                      <Heading para toggle={isDarkTheme}>
-                        {publishedTime}
-                      </Heading>
-                    </ViewContainer>
-                    <BtnContainer toggle={isDarkTheme}>
-                      <LikeContainer toggle={isDarkTheme}>
-                        <LikeBtn
-                          onClick={this.onLikeClick}
-                          liked={positiveLiked}
-                        >
-                          <AiOutlineLike />
-                          Like
-                        </LikeBtn>
-                      </LikeContainer>
-
-                      <LikeContainer toggle={isDarkTheme}>
-                        <LikeBtn
-                          onClick={this.onDislikeClick}
-                          liked={negitiveLiked}
-                        >
-                          <AiOutlineDislike />
-                          Dislike
-                        </LikeBtn>
-                      </LikeContainer>
-                      <LikeContainer toggle={isDarkTheme}>
-                        <LikeBtn
-                          value={id}
-                          onClick={toggleSaved}
-                          style={{
-                            color: isExist ? '#2563eb ' : '#64748b',
-                          }}
-                        >
-                          <BiListPlus />
-                          {isExist ? 'Saved' : 'Save'}
-                        </LikeBtn>
-                      </LikeContainer>
-                    </BtnContainer>
-                  </ViewandBtnContainer>
-                  <hr
-                    style={{
-                      width: '85%',
-                      color: isDarkTheme ? '#cbd5e1' : '#000000',
-                    }}
-                  />
-                  <PNSContainer toggle={isDarkTheme}>
-                    <LogoImg
-                      src={profileImg}
-                      alt="channel logo"
-                      height="40px"
-                      width="40px"
-                    />
-                    <NSContainer>
-                      <Heading para toggle={isDarkTheme}>
-                        {name}
-                      </Heading>
-                      <Heading para toggle={isDarkTheme}>
-                        {subscriberCount} subscribers
-                      </Heading>
-                    </NSContainer>
-                  </PNSContainer>
-                  <Heading
-                    para
-                    style={{
-                      width: '85%',
-                      color: isDarkTheme ? '#cbd5e1' : '#000000',
-                    }}
-                  >
-                    {description}
-                  </Heading>
+                    </div>
+                  )}
                 </HomeVideoContainer>
               </BottomContainer>
             </HomeContainer>

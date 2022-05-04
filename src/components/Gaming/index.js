@@ -131,3 +131,7 @@ class Gaming extends Component {
 }
 
 export default Gaming
+
+// const Gaming = () => <h1>ok</h1>
+
+// export default Gaming

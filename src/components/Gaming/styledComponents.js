@@ -15,15 +15,22 @@ export const HomeVideoContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 576px) {
+    width: 100vw;
+  }
 `
 
 export const LogoImg = styled.img.attrs(props => ({
   src: props.src,
 }))`
-  height: 400px;
+  height: 500px;
+  width: 100%;
   align-self: flex-start;
+  @media (max-width: 576px) {
+    width: 100%;
+  }
 `
-export const EachVideoContainer = styled.ul`
+export const EachVideoContainer = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -36,6 +43,11 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 40px;
+  margin-bottom: 12px;
+  @media (max-width: 576px) {
+    height: 10vh;
+    width: 100vw;
+  }
 `
 
 export const IconContainer = styled.div`
@@ -46,6 +58,9 @@ export const IconContainer = styled.div`
   background-color: ${props => (props.toggle ? '#424242' : '#94a3b8')};
   border-radius: 80px;
   padding: 40px;
+  @media (max-width: 576px) {
+    padding: 18px;
+  }
 `
 
 export const Heading = styled.h1`
@@ -53,11 +68,20 @@ export const Heading = styled.h1`
   margin-left: 10px;
 `
 
-export const VideoContainer = styled.li`
+export const VideoContainer = styled.div`
   list-style-type: none;
   width: 30%;
   padding-top: 20px;
   margin-left: 20px;
+
+  @media (max-width: 576px) {
+    width: 80vw;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    padding-top: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 105px;
+  }
 `
 
 export const Title = styled.p`
@@ -68,10 +92,9 @@ export const Title = styled.p`
 `
 
 export const TheoryContainer = styled.div`
-  //   display: flex;
-  //   flex-direction: column;
-  //   //   align-items: flex-start;
-  //   margin-left: 12px;
+  @media (max-width: 576px) {
+    margin-left: 5px;
+  }
 `
 
 export const ViewsCount = styled.p`

@@ -8,11 +8,14 @@ export const SideContainer = styled.nav`
   width: 18%;
   height: 150vh;
   list-style-type: none;
-
   background-color: ${props => (props.toggle ? '#0f0f0f' : '#ffffff')};
+  @media (max-width: 576px) {
+    width: 100%;
+    height: 10vh;
+  }
 `
 
-export const ListItem = styled.li`
+export const ListItem = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
@@ -22,6 +25,11 @@ export const ListItem = styled.li`
     color: red;
     background-color: ${props => (props.toggle ? '#94a3b8' : ' #e2e8f0')};
   }
+  @media (max-width: 576px) {
+    padding-left: 5px;
+    border: 1px solid ${props => (props.toggle ? 'white' : 'black')};
+    border-radius: 15px;
+  }
 `
 
 export const ItemPara = styled.p`
@@ -30,11 +38,17 @@ export const ItemPara = styled.p`
   font-size: 15px;
   font-weight: 500;
   margin-left: 10px;
+  @media (max-width: 576px) {
+    font-size: 8px;
+  }
 `
 export const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  @media (max-width: 576px) {
+    display: none;
+  }
 `
 
 export const ContactPara = styled.p`
@@ -42,12 +56,12 @@ export const ContactPara = styled.p`
   font-size: 19px;
   font-family: Roboto;
   font-weight: 500;
+  @media (max-width: 576px) {
+    font-size: 9px;
+  }
 `
 export const SocialLogos = styled.div`
   display: flex;
-  //   height: 10px;
-  //   width: 10px;
   justify-content: space-between;
-  margin-right: 10px;
+  //   margin-right: 10px;
 `
-export const navList = styled.ul``

@@ -3,6 +3,9 @@ import styled from 'styled-components'
 export const HomeContainer = styled.nav`
   background-color: ${props => (props.toggle ? '#0f0f0f' : '#f9f9f9')};
   width: 85vw;
+  @media (max-width: 576px) {
+    width: 100vh;
+  }
 `
 export const BottomContainer = styled.div`
   display: flex;
@@ -11,17 +14,30 @@ export const BottomContainer = styled.div`
 export const HomeVideoContainer = styled.div`
   background-color: ${props => (props.toggle ? '#0f0f0f' : '#f9f9f9')};
   width: 100%;
-  //   border: 2px solid yellow;
+
   display: flex;
   flex-direction: column;
+  //   align-items: center;
 `
 
-export const EachVideoContainer = styled.ul`
+export const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+`
+export const EachVideoContainer = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   overflow-y: scroll;
-  height: 752px;
+
+  width: 86%;
+  height: 120vh;
+
+  @media (max-width: 576px) {
+    width: 100%;
+    // justify-content: flex-start;
+  }
 `
 
 export const HeaderContainer = styled.div`
@@ -30,6 +46,10 @@ export const HeaderContainer = styled.div`
   align-items: center;
   padding: 40px;
   width: 100%;
+  @media (max-width: 576px) {
+    width: 100%;
+    padding: 0px;
+  }
 `
 
 export const IconContainer = styled.div`
@@ -40,6 +60,9 @@ export const IconContainer = styled.div`
   background-color: ${props => (props.toggle ? '#424242' : '#94a3b8')};
   border-radius: 80px;
   padding: 40px;
+  @media (max-width: 576px) {
+    padding: 15px;
+  }
 `
 
 export const Heading = styled.h1`
